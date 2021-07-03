@@ -1,27 +1,24 @@
-import string
+import hackxercise6
+import hackxercise7
 
 
-def ceasar_cipher(plain_text, left_shift):
-    alpha_string = string.ascii_lowercase
+def ex6():
+    plaintext = b'Hello!          '
+    k = b'1234567890123456'
+    ciphertext = hackxercise6.aes_encrypt(plaintext, k)
+    print(ciphertext)
 
-    output = []
-    for c in plain_text:
-        if c in alpha_string:
-            position = alpha_string.index(c)
-            shifted_position = (position - left_shift) % 26
-            output.append(alpha_string[shifted_position])
-        else:
-            output.append(c)
+    print(hackxercise6.aes_decrypt(ciphertext, k))
 
-    return ''.join(output)
+
+def ex7():
+    s = "12345678901234567890123456789012345678901234567890"
+    print(hackxercise7.is_english(s))
 
 
 def main():
-    plain_text = 'hello world'
-    print(ceasar_cipher(plain_text, 2))
+    ex7()
 
-    cipher_text = 'voovxf vo yvri'
-    print(ceasar_cipher(cipher_text, -5))
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
